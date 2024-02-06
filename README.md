@@ -37,5 +37,3 @@ The `shell.c` file serves as the foundational driver for the custom shell. It is
 `shell.c` acts as the interface between the user and the underlying functionalities implemented in `myshell.c`, orchestrating the flow of the shell program.
 
 ---
-
-This README provides a comprehensive overview of your project, its features, and how it can be used and expanded. Feel free to adjust it to better fit the specifics of your project or any additional details you think are important.
