@@ -24,9 +24,7 @@ This project is a custom shell implemented in C, developed as part of an Operati
 ## Contributing
 Contributions to enhance the shell, add new features, or improve error handling are welcome. Please follow the standard GitHub pull request process.
 
----
-
-# About `shell.c`
+## About `shell.c`
 The `shell.c` file serves as the foundational driver for the custom shell. It is responsible for the overall lifecycle of the shell application, including:
 
 - **Reading User Input:** It captures command-line input from the user.
