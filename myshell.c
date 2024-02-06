@@ -148,7 +148,10 @@ int process_arglist(int count, char **arglist) {
     else if (strcmp(symbol, "|") == 0){
         //create a pipe
         int fds[2];
-        pipe(fds);
+        if(pipe(fds) == -1){
+            perror("pipe failed");
+            return 0;
+        }
 
         pid_t pid1 = fork(); 
 
