@@ -30,16 +30,20 @@ This project is a custom shell implemented in C, developed as part of an Operati
 ## Contributing
 Contributions to enhance the shell, add new features, or improve error handling are welcome. Please follow the standard GitHub pull request process.
 
-## About shell.c
+Certainly! Here's an addition to the README that provides an explanation of the `shell.c` file:
 
-The shell.c file serves as the foundational driver for the custom shell. It is responsible for the overall lifecycle of the shell application, including:
+---
 
-Reading User Input: It captures command-line input from the user.
-Command Parsing: It breaks down the input into recognizable commands and parameters.
-Invocation of process_arglist(): It delegates the execution of parsed commands to the process_arglist() function defined in myshell.c.
-Initial Setup and Cleanup: It calls prepare() before entering the main command loop and finalize() upon exiting, ensuring any necessary initialization and cleanup are performed.
+## About `shell.c`
+The `shell.c` file serves as the foundational driver for the custom shell. It is responsible for the overall lifecycle of the shell application, including:
 
-shell.c acts as the interface between the user and the underlying functionalities implemented in myshell.c, orchestrating the flow of the shell program.
+- **Reading User Input:** It captures command-line input from the user.
+- **Command Parsing:** It breaks down the input into recognizable commands and parameters.
+- **Invocation of `process_arglist()`:** It delegates the execution of parsed commands to the `process_arglist()` function defined in `myshell.c`.
+- **Initial Setup and Cleanup:** It calls `prepare()` before entering the main command loop and `finalize()` upon exiting, ensuring any necessary initialization and cleanup are performed.
+
+`shell.c` acts as the interface between the user and the underlying functionalities implemented in `myshell.c`, orchestrating the flow of the shell program.
+
 ---
 
 This README provides a comprehensive overview of your project, its features, and how it can be used and expanded. Feel free to adjust it to better fit the specifics of your project or any additional details you think are important.
