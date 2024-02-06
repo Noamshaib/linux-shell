@@ -7,25 +7,17 @@
 #include <fcntl.h>
 #include <signal.h>
 
-void sigchld_handler(int signo) {
-    // Use waitpid in a loop with WNOHANG to reap all finished children
-    while (waitpid(-1, NULL, WNOHANG) > 0);
-}
-
-
 
 int prepare(void) {
     // Set up SIGINT to be ignored in the parent process
-    signal(SIGINT, SIG_IGN);
-
+    if(signal(SIGINT, SIG_IGN) == SIG_ERR){
+        perror("SIGINT handler failed");
+        return -1;
+    }
     // Set up the SIGCHLD handler to prevent zombies
-    struct sigaction sa;
-    sa.sa_handler = sigchld_handler; // sigchld_handler as defined previously
-    sigemptyset(&sa.sa_mask);
-    sa.sa_flags = SA_RESTART | SA_NOCLDSTOP;
-    if (sigaction(SIGCHLD, &sa, NULL) == -1) {
-        perror("sigaction");
-        exit(1);
+    if(signal(SIGCHLD, SIG_IGN) == SIG_ERR){
+        perror("SIGINT handler failed");
+        return -1;
     }
 
     return 0;  // Success
@@ -71,7 +63,7 @@ int process_arglist(int count, char **arglist) {
         
         if (pid == -1) {
             perror("fork");
-            return 0;  // or handle the error as appropriate
+            return 0;  
         } 
         else if (pid == 0) { 
             // child process
@@ -96,7 +88,10 @@ int process_arglist(int count, char **arglist) {
         else if (pid == 0) { 
             // child process
             // set up signal handler to NOT ignore SIGINT in child - set to original default
-            signal(SIGINT, SIG_DFL);
+            if(signal(SIGINT, SIG_DFL) == SIG_ERR){
+                perror("SIGINT handler failed");
+                exit(1);
+            }
 
             // Handle "<" case (input redirection)
             if (strcmp(symbol, "<") == 0){
@@ -150,7 +145,10 @@ int process_arglist(int count, char **arglist) {
         else if (pid1 == 0) { 
             // child1 process
             // set up signal handler to NOT ignore SIGINT in child - set to original default
-            signal(SIGINT, SIG_DFL);
+            if(signal(SIGINT, SIG_DFL) == SIG_ERR){
+                perror("SIGINT handler failed");
+                exit(1);
+            }
 
             close(fds[0]);
             dup2(fds[1], STDOUT_FILENO);
@@ -174,7 +172,10 @@ int process_arglist(int count, char **arglist) {
             else if (pid2 == 0) { 
                 // child2 process
                 // set up signal handler to NOT ignore SIGINT in child - set to original default
-                signal(SIGINT, SIG_DFL);
+                if(signal(SIGINT, SIG_DFL) == SIG_ERR){
+                    perror("SIGINT handler failed");
+                    exit(1);
+                }
 
                 close(fds[1]);
                 dup2(fds[0], STDIN_FILENO);
