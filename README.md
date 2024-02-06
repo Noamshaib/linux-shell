@@ -1,10 +1,4 @@
-# linux-shell
-This repository hosts an Operating Systems course project: a custom shell in C. It illustrates process management, signal handling, and IPC with pipes, showcasing the creation and control of foreground and background processes, and data flow management between programs in a shell environment.
-Certainly! Here's an expanded version of the README with additional relevant information:
-
----
-
-# Custom Shell for Operating Systems Course
+# linux-shell - Custom Shell for OS Course
 
 ## Overview
 This project is a custom shell implemented in C, developed as part of an Operating Systems course. It serves as a practical application of core OS concepts such as process management, signal handling, and inter-process communication.
@@ -30,11 +24,9 @@ This project is a custom shell implemented in C, developed as part of an Operati
 ## Contributing
 Contributions to enhance the shell, add new features, or improve error handling are welcome. Please follow the standard GitHub pull request process.
 
-Certainly! Here's an addition to the README that provides an explanation of the `shell.c` file:
-
 ---
 
-## About `shell.c`
+# About `shell.c`
 The `shell.c` file serves as the foundational driver for the custom shell. It is responsible for the overall lifecycle of the shell application, including:
 
 - **Reading User Input:** It captures command-line input from the user.
