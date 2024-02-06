@@ -34,10 +34,10 @@ Contributions to enhance the shell, add new features, or improve error handling 
 
 The shell.c file serves as the foundational driver for the custom shell. It is responsible for the overall lifecycle of the shell application, including:
 
-    Reading User Input: It captures command-line input from the user.
-    Command Parsing: It breaks down the input into recognizable commands and parameters.
-    Invocation of process_arglist(): It delegates the execution of parsed commands to the process_arglist() function defined in myshell.c.
-    Initial Setup and Cleanup: It calls prepare() before entering the main command loop and finalize() upon exiting, ensuring any necessary initialization and cleanup are performed.
+Reading User Input: It captures command-line input from the user.
+Command Parsing: It breaks down the input into recognizable commands and parameters.
+Invocation of process_arglist(): It delegates the execution of parsed commands to the process_arglist() function defined in myshell.c.
+Initial Setup and Cleanup: It calls prepare() before entering the main command loop and finalize() upon exiting, ensuring any necessary initialization and cleanup are performed.
 
 shell.c acts as the interface between the user and the underlying functionalities implemented in myshell.c, orchestrating the flow of the shell program.
 ---
