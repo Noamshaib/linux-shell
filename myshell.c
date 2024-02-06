@@ -9,17 +9,6 @@
 
 #include <stdio.h>
 
-void print_arglist(char **arglist) {
-    if (arglist == NULL) {
-        printf("arglist is NULL\n");
-        return;
-    }
-
-    for (int i = 0; arglist[i] != NULL; i++) {
-        printf("arglist[%d]: %s\n", i, arglist[i]);
-    }
-}
-
 
 int prepare(void) {
     // Set up SIGINT to be ignored in the parent process
@@ -39,8 +28,6 @@ int prepare(void) {
 
 
 int process_arglist(int count, char **arglist) {
-
-    print_arglist(arglist);
 
     //check if and where a shell symbol &\<\>\| locate in arglist
     char symbol[2] = "";
